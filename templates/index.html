@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Telecome Churn Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Total_Months_Spend_in_2017" placeholder="Total_Months_Spend_in_2017" required="required" />
+        <input type="text" name="Total_Offnet_Spend" placeholder="Total_Offnet_Spend" required="required" />
+		<input type="text" name="Total_Sms_Spend" placeholder="Total_Sms_Spend" required="required" />
+        <input type="text" name="TotalOnnetspend" placeholder="TotalOnnetspend" required="required" />
+		<input type="text" name="TotalUniqueCalls" placeholder="TotalUniqueCalls" required="required" />
+		<input type="text" name="is_Uxaa_network" placeholder="is_Uxaa_network_0_or_1" required="required" />
+		<input type="text" name="Total_Data_Consumption" placeholder="Total_Data_Consumption" required="required" />
+		<input type="text" name="Total_Data_spend" placeholder="Total_Data_spend" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
